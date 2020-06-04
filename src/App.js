@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./component/Navigation";
+import Navigation from "./component/Navigation/Navigation";
 import "./App.css";
 
 function App() {
