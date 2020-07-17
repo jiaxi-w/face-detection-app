@@ -23,7 +23,7 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch("http://localhost:3000/signin", {
+    fetch("http://localhost:3000/register", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -40,9 +40,8 @@ class Register extends React.Component {
         }
       });
   };
-  
+
   render() {
-    const { onRouteChange } = this.props;
     return (
       <article className="br4 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
@@ -58,7 +57,7 @@ class Register extends React.Component {
                   type="text"
                   name="name"
                   id="name"
-                  onChange={onNameChange}
+                  onChange={this.onNameChange}
                 />
               </div>
               <div className="mt3">
@@ -70,7 +69,7 @@ class Register extends React.Component {
                   type="email"
                   name="email-address"
                   id="email-address"
-                  onChange={onEmailChange}
+                  onChange={this.onEmailChange}
                 />
               </div>
               <div className="mv3">
@@ -82,13 +81,13 @@ class Register extends React.Component {
                   type="password"
                   name="password"
                   id="password"
-                  onChange={onPasswordChange}
+                  onChange={this.onPasswordChange}
                 />
               </div>
             </fieldset>
             <div className="">
               <input
-                onClick={() => onRouteChange("home")}
+                onClick={this.onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
