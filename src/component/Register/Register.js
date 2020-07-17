@@ -1,7 +1,29 @@
 import React from "react";
 
 class Register extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      name: "",
+    };
+  }
+
+  onNameChange = (event) => {
+    this.setState({ name: event.target.value });
+  };
+
+  onEmailChange = (event) => {
+    this.setState({ email: event.target.value });
+  };
+
+  onPasswordChange = (event) => {
+    this.setState({ password: event.target.value });
+  };
+
   render() {
+    const { onRouteChange } = this.props;
     return (
       <article className="br4 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
@@ -17,6 +39,7 @@ class Register extends React.Component {
                   type="text"
                   name="name"
                   id="name"
+                  onChange={onNameChange}
                 />
               </div>
               <div className="mt3">
@@ -28,6 +51,7 @@ class Register extends React.Component {
                   type="email"
                   name="email-address"
                   id="email-address"
+                  onChange={onEmailChange}
                 />
               </div>
               <div className="mv3">
@@ -39,6 +63,7 @@ class Register extends React.Component {
                   type="password"
                   name="password"
                   id="password"
+                  onChange={onPasswordChange}
                 />
               </div>
             </fieldset>
