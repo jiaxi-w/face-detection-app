@@ -78,29 +78,23 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch(
-      "http://6515e11b2a0f4a0b0e2534d0--lovely-mousse-850308.netlify.app/imageurl",
-      {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          input: this.state.input,
-        }),
-      }
-    )
+    fetch("http://sage-pithivier-7b48fe.netlify.app/imageurl", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        input: this.state.input,
+      }),
+    })
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch(
-            "http://6515e11b2a0f4a0b0e2534d0--lovely-mousse-850308.netlify.app/image",
-            {
-              method: "put",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                id: this.state.user.id,
-              }),
-            }
-          )
+          fetch("http://sage-pithivier-7b48fe.netlify.app/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
             .then((response) => response.json())
             .then((count) => {
               this.setState(Object.assign(this.state.user, { entries: count }));

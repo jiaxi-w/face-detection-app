@@ -23,18 +23,15 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch(
-      "http://6515e11b2a0f4a0b0e2534d0--lovely-mousse-850308.netlify.app/register",
-      {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: this.state.email,
-          password: this.state.password,
-          name: this.state.name,
-        }),
-      }
-    )
+    fetch("http://sage-pithivier-7b48fe.netlify.app//register", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name,
+      }),
+    })
       .then((response) => response.json())
       .then((user) => {
         if (user.id) {
