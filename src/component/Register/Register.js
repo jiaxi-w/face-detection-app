@@ -4,9 +4,9 @@ class Register extends React.Component {
   constructor() {
     super();
     this.state = {
+      name: "",
       email: "",
       password: "",
-      name: "",
     };
   }
 
@@ -23,15 +23,18 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch("https://morning-sierra-73973.herokuapp.com/register", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-        name: this.state.name,
-      }),
-    })
+    fetch(
+      "http://6515e11b2a0f4a0b0e2534d0--lovely-mousse-850308.netlify.app/register",
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+          name: this.state.name,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((user) => {
         if (user.id) {
